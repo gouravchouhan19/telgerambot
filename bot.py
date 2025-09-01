@@ -2,6 +2,7 @@ from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Updater, CommandHandler, CallbackQueryHandler, CallbackContext
 import random
 import time
+from server import keep_alive
 
 # Bot Token
 BOT_TOKEN = "7751903987:AAGZiLgA5-qZz1hpM05O-BlR9Qrb1jsv1sk"
@@ -104,7 +105,7 @@ def invite(update: Update, context: CallbackContext):
     ref_link = f"https://t.me/{bot_username}?start={user_id}"
     update.message.reply_text(f"🔗 Your Referral Link:\n{ref_link}")
 
-
+keep_alive()
 # -------------------- MAIN FUNCTION --------------------
 def main():
     updater = Updater(BOT_TOKEN)
@@ -120,4 +121,5 @@ def main():
 
 
 if __name__ == "__main__":
+
     main()
